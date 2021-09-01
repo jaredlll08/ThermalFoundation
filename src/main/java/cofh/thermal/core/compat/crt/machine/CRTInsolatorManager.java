@@ -30,7 +30,7 @@ public class CRTInsolatorManager implements IRecipeManager {
         ResourceLocation resourceLocation = new ResourceLocation("crafttweaker", name);
 
         CRTRecipe crtRecipe = new CRTRecipe(resourceLocation).energy(energy).input(ingredient).input(new CTFluidIngredient.FluidStackIngredient(new MCFluidStack(new FluidStack(Fluids.WATER, fluidAmount)))).output(outputs);
-        CraftTweakerAPI.apply(new ActionAddRecipe(this, crtRecipe.recipe(InsolatorRecipe::new), ""));
+        CraftTweakerAPI.apply(new ActionAddRecipe(this, crtRecipe.recipe(InsolatorRecipe::new)));
     }
 
     @Override
