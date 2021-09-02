@@ -20,13 +20,7 @@ public class CRTHelper {
      * @return A {@link FluidIngredient} representation of the given {@link CTFluidIngredient}.
      */
     public static FluidIngredient mapFluidIngredient(CTFluidIngredient ingredient) {
-        return ingredient.mapTo(FluidIngredient::of, (tag, amount) -> {
-            FluidIngredient of = FluidIngredient.of(tag);
-            for (FluidStack fluid : of.getFluids()) {
-                fluid.setAmount(amount);
-            }
-            return of;
-        }, compound -> compound.reduce((first, second) -> FluidIngredient.of(Stream.concat(Arrays.stream(first.getFluids()), Arrays.stream(second.getFluids())))).orElseThrow(() -> new RuntimeException("Error while mapping compound fluid ingredients!")));
+        return ingredient.mapTo(FluidIngredient::of, FluidIngredient::of, compound -> compound.reduce((first, second) -> FluidIngredient.of(Stream.concat(Arrays.stream(first.getFluids()), Arrays.stream(second.getFluids())))).orElseThrow(() -> new RuntimeException("Error while mapping compound fluid ingredients!")));
     }
 
     /**
