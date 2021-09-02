@@ -46,4 +46,5 @@ public class CRTLapidaryManager implements IRecipeManager {
         return TCoreRecipeTypes.FUEL_LAPIDARY;
     }
 
+
 }

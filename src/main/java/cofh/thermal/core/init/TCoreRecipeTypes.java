@@ -49,6 +49,8 @@ public class TCoreRecipeTypes {
         FUEL_MAGMATIC.register();
         FUEL_NUMISMATIC.register();
         FUEL_LAPIDARY.register();
+        FUEL_DISENCHANTMENT.register();
+        FUEL_GOURMAND.register();
     }
 
     // region DEVICES
